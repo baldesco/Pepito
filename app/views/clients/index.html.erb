@@ -1,0 +1,25 @@
+<h1>Lista de usuarios</h1>
+<h3 color: red><%=notice%></h3>
+<p>Hay <%=@clients.count%> clientes </p>
+
+<table>
+	<tr>
+		<th> Nombre del usuario	</th>
+		<th> Email </th>
+		<th> Acciones </th>
+	</tr>
+	<% @clients.each do |client|%>
+		<tr>
+			<td><%= client.name%></td>
+			<td><%= client.email%></td>
+			<td><%= link_to 'Ver detalle', url_for(controller: :clients, action: :show,id: client.id)%>||</td>  
+			<td><%= link_to 'Editar',url_for(controller: :clients,action: :edit, id: client.id)%>||</td>
+			<td><%= link_to 'Borrar',url_for(controller: :clients,action: :destroy, id: client.id)%>||</td>
+			<td><%= link_to 'Borrar',client,id: client.id, method: :delete,data:{confirm: "En serio lo quiere borrar?"}%></td>
+		</tr>
+
+	<% end %>
+</table>
+
+
+

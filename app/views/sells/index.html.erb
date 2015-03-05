@@ -1,0 +1,19 @@
+<h1>Lista de ventas</h1>
+
+<p>Se han hecho <%=@sells.count%> ventas hasta el momento. </p>
+
+<table>
+	<tr>
+		<th> Total de la venta	</th>
+		<th> Comentario </th>
+		<th> Acciones </th>
+	</tr>
+	<% @sells.each do |sell|%>
+		<tr>
+			<td><%= sell.total%></td>
+			<td><%= sell.command%></td>
+			<td><%= link_to 'Ver detalle', url_for(controller: :sells, action: :show,id: sell.id)%></td>
+		</tr>
+
+	<% end %>
+</table>

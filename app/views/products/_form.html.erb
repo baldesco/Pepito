@@ -1,0 +1,19 @@
+<% if !@product.errors.empty? %>
+	<ol>
+		<% @product.errors.full_messages.each do |msg| %>
+		<li><%=msg%></li>
+		<%end%>
+	</ol>
+<%end%>
+
+<%= form_for @product do |f| %>
+	<p>Referencia: <%= f.text_field :ref%></p>
+	<p>Descripción: <%= f.text_field :description%></p>
+	<p>Marca: <%= f.text_field :brand%></p>
+<!-- Para generar una lista desplegable se utiliza la opción '.select' -->
+	<p>Tamaño: <%= f.select :size, options_for_select([' ','S','M','L','XL'])%></p>
+	<p>Precio: <%= f.range_field :price,min: 0,max: 100000,step: 1000%></p>
+	<p>Cantidad: <%= f.number_field :quantity,min:0,max: 100,step: 1%></p>
+	<p>Color: <%= f.color_field :color%></p>
+	<%= f.submit %>
+<%end%>

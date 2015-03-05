@@ -1,0 +1,11 @@
+<h1>Detalle del usuario</h1>
+
+<h2>Nombre:</h2> <%=@client.name%>
+<br/>
+<h2>Email:</h2> <%=@client.email%>
+<br/>
+<h2>Avatar:</h2> <%= image_tag @client.avatar.url%>
+<br/>
+<br/>
+
+<%= link_to 'Volver al índice', clients_path%>

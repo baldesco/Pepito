@@ -1,0 +1,34 @@
+<h1>Detalle de la venta:</h1>
+
+<h2>Cliente:</h2> <%=@sell.client%>
+
+<table border:4px solid black>
+	<tr>
+		<th> Producto	</th>
+		<th> Marca </th>
+		<th> Precio unitario </th>
+		<th> Cantidad </th>
+		<th> Total </th>
+	</tr>
+
+	<% @sell.lineitems.each do |item|%>
+		<tr>
+			<td><%= item.product.description%></td>
+			<td><%= item.product.brand%></td>
+			<td><%= item.value%></td>
+			<td><%= item.quantity%></td>
+			<td><%= item.quantity*item.value%></td>
+		</tr>
+	<%end%>
+		
+</table>
+
+
+
+<h2>Total:</h2> <%=@sell.total%>
+<br/>
+<h2>Comentarios:</h2> <%=@sell.command%>
+<br/>
+<br/>
+
+<%= link_to 'Volver al índice',sells_index_path%>
